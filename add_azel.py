@@ -44,8 +44,8 @@ def calculate_azimuth_elevation(satellite, observer_lat, observer_lon, observer_
 
 
 def add_azimuth_elevation_distance(df, satellites):
-    observer_lat = 40.766136
-    observer_lon = -8.387586
+    observer_lat = 40.75
+    observer_lon = -8.35
     observer_elevation = 330
 
     results = []
