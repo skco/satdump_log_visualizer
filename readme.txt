@@ -23,7 +23,7 @@ combined_coverage.py - script for generate more combined coverage maps (snr_heat
 
 Then open fiile summary.html
 
-additional coverage files created will be created:
+additional coverage files  will be created:
 
 images\polar_plot_all_inverted
 images\polar_plot_all
