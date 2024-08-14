@@ -1,4 +1,4 @@
-required Python libraries installation:
+required Python libraries installation commandline:
 pip install pandas numpy matplotlib cartopy folium jinja2 Pillow skyfield requests openpyxl scipy
 
 
