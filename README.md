@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Satellite Data Processing and Visualization</h1>
+<h1>Satdump Logs Processing and Visualization</h1>
 
 <p>This project processes satellite pass data from satdump logs, calculates azimuth and elevation, and generates various visualizations, including coverage maps and polar plots. The project also creates a summary HTML file with detailed information and links to all generated visualizations.</p>
 
