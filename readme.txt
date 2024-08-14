@@ -1,7 +1,6 @@
 required Python libraries installation commandline:
 pip install pandas numpy matplotlib cartopy folium jinja2 Pillow skyfield requests openpyxl scipy
 
-
 You need to set  values in log_parser.py ​​to your location:
 OBSERVER_LAT
 OBSERVER_LON 
@@ -30,4 +29,6 @@ images\polar_plot_all
 
 example:
 http://radioastro.pl/log_project20/index.html
+
+thanks to Antonio "t0nito" Pereira for providing test data.
 
