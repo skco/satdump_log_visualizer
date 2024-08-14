@@ -59,7 +59,7 @@
 
 <h3>Configuration</h3>
 
-<p>Before running the scripts, you need to set the observer's location in <code>log_parser.py</code>:</p>
+<p>Before running the scripts, you need to set the observer's location in <code>add_azel.py</code>:</p>
 <ul>
     <li><code>OBSERVER_LAT</code>: Observer's latitude</li>
     <li><code>OBSERVER_LON</code>: Observer's longitude</li>
