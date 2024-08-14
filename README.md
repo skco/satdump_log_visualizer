@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Satellite Data Processing and Visualization</title>
+   
 </head>
 <body>
 
