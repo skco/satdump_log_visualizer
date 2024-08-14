@@ -1,20 +1,21 @@
-Satellite Data Processing and Visualization
+<h1>Satellite Data Processing and Visualization</h1>
 
-This project processes satellite pass data from satdump logs, calculates azimuth and elevation, and generates various visualizations, including coverage maps and polar plots. 
-The project also creates a summary HTML file with detailed information and links to all generated visualizations.
+<p>This project processes satellite pass data from satdump logs, calculates azimuth and elevation, and generates various visualizations, including coverage maps and polar plots. The project also creates a summary HTML file with detailed information and links to all generated visualizations.</p>
 
-Prerequisites
-Required Python Libraries
-To install the required Python libraries, run the following command:
+<h2>Prerequisites</h2>
 
-pip install pandas numpy matplotlib cartopy folium jinja2 Pillow skyfield requests openpyxl scipy
+<h3>Required Python Libraries</h3>
 
-Directory Structure
-Ensure that your project directory is set up as follows:
+<p>To install the required Python libraries, run the following command:</p>
 
-python
-Skopiuj kod
-main directory (root) - run all script files from this directory
+<pre><code>pip install pandas numpy matplotlib cartopy folium jinja2 Pillow skyfield requests openpyxl scipy
+</code></pre>
+
+<h3>Directory Structure</h3>
+
+<p>Ensure that your project directory is set up as follows:</p>
+
+<pre><code>main directory (root) - run all script files from this directory
 │
 ├── logs         # Folder containing satdump log files
 │
@@ -23,30 +24,49 @@ main directory (root) - run all script files from this directory
 ├── templates    # Folder containing HTML templates for generating summary and visualizations
 │
 └── *.py         # Python scripts (log_parser.py, add_azel.py, generate_summary.py, combined_coverage.py)
-Configuration
-Before running the scripts, you need to set the observer's location in log_parser.py:
+</code></pre>
 
-OBSERVER_LAT: Observer's latitude
-OBSERVER_LON: Observer's longitude
-OBSERVER_ELEVATION: Observer's elevation (in meters)
-Running the Project
-Follow this order to run the scripts and generate the final output:
+<h3>Configuration</h3>
 
-log_parser.py: Parses the satdump logs and extracts relevant data.
-add_azel.py: Calculates azimuth, elevation, and lat/lon data based on the observer's location.
-generate_summary.py: Generates the final summary HTML file (summary.html) with links to visualizations.
-combined_coverage.py: Generates additional combined coverage maps:
-snr_heatmap_cartopy.png - SNR heatmap using Cartopy
-snr_heatmap_folium.html - SNR heatmap using Folium
-Viewing the Results
-After running the scripts, open the summary.html file in your browser to view the generated summary and visualizations.
+<p>Before running the scripts, you need to set the observer's location in <code>log_parser.py</code>:</p>
 
-Additional coverage files will be created in the images directory:
+<ul>
+<li><code>OBSERVER_LAT</code>: Observer's latitude</li>
+<li><code>OBSERVER_LON</code>: Observer's longitude</li>
+<li><code>OBSERVER_ELEVATION</code>: Observer's elevation (in meters)</li>
+</ul>
 
-images/polar_plot_all_inverted.png
-images/polar_plot_all.png
-Example
-An example of the final output can be viewed here.
+<h2>Running the Project</h2>
 
-Acknowledgments
-Special thanks to Antonio "t0nito" Pereira for providing test data for this project.
+<p>Follow this order to run the scripts and generate the final output:</p>
+
+<ol>
+<li><strong>log_parser.py</strong>: Parses the satdump logs and extracts relevant data.</li>
+<li><strong>add_azel.py</strong>: Calculates azimuth, elevation, and lat/lon data based on the observer's location.</li>
+<li><strong>generate_summary.py</strong>: Generates the final summary HTML file (<code>summary.html</code>) with links to visualizations.</li>
+<li><strong>combined_coverage.py</strong>: Generates additional combined coverage maps:
+  <ul>
+    <li><code>snr_heatmap_cartopy.png</code> - SNR heatmap using Cartopy</li>
+    <li><code>snr_heatmap_folium.html</code> - SNR heatmap using Folium</li>
+  </ul>
+</li>
+</ol>
+
+<h3>Viewing the Results</h3>
+
+<p>After running the scripts, open the <code>summary.html</code> file in your browser to view the generated summary and visualizations.</p>
+
+<p>Additional coverage files will be created in the <code>images</code> directory:</p>
+
+<ul>
+<li><code>images/polar_plot_all_inverted.png</code></li>
+<li><code>images/polar_plot_all.png</code></li>
+</ul>
+
+<h2>Example</h2>
+
+<p>An example of the final output can be viewed <a href="http://radioastro.pl/log_project20/index.html">here</a>.</p>
+
+<h2>Acknowledgments</h2>
+
+<p>Special thanks to Antonio "t0nito" Pereira for providing test data for this project.</p>
