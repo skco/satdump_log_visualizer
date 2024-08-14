@@ -75,7 +75,6 @@ def add_azimuth_elevation_distance(df, satellites):
 
     return df.assign(**pd.DataFrame(results))
 
-# Główna funkcja
 def main():
     df = pd.read_excel('parsed_log_data.xlsx')
 
