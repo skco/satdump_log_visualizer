@@ -72,6 +72,8 @@ def process_log_files(files):
     for file in files:
         with open(file, 'r') as f:
             for line in f:
+                # AOS and LOS support only live decode
+                # can be changed to (I) Start processing... and (I) Stop processing
                 if '(I) Start processing...' in line:
                     # Start a new entry when 'AOS!!!!!!!!!!!!!!' is found
                     if current_entry:
@@ -81,8 +83,8 @@ def process_log_files(files):
                         'end': None,
                         'logs': []
                     }
-                elif '(I) Stop processing' in line:
-                    # Close the entry when 'LOS!!!!!!!!!!!!!!' is found
+                elif 'LOS!!!!!!!!!!!!!!' in line:
+                    # Close the entry when '(I) Stop processing' is found
                     if current_entry:
                         current_entry['end'] = convert_timestamp(re.match(r'\[(.*?)\]', line).group(1))
                         log_entries.append(current_entry)
@@ -116,10 +118,17 @@ def create_dataframe(log_entries):
     return df
 
 # Function to merge rows in the DataFrame with the same Timestamp
+# Mergeing SNR	Peak_SNR line with BER, SYNC line:
+    
+# Timestamp	             SNR	Peak_SNR	Viterbi	BER	        Deframer
+#2024-07-23 02:38:30			            SYNCED	0.081787	SYNCED
+#2024-07-23 02:38:40   8.158834	 8.659492			
+
 def merge_rows(df):
     def merge_group(group):
         merged = {}
         # For each column, pick the first non-null value in the group
+        
         for col in group.columns:
             merged[col] = group[col].dropna().iloc[0] if not group[col].dropna().empty else None
         return pd.Series(merged)
@@ -164,6 +173,7 @@ def extract_decoder_from_folder_name(folder_name):
     parts = folder_name.split('_')
     if len(parts) > 1:
         return parts[-2]  # Assuming the decoder ID is the second last part of the folder name
+                          # i.e 2024-07-22_02-55_meteor_m2-x_lrpt_137.9 MHz
     return 'Unknown'
 
 # Function to convert a timestamp (as a float) to a datetime object
@@ -173,7 +183,7 @@ def convert_timestamp_to_datetime(timestamp):
 # Main function to process log files and generate an Excel file
 def main():
     # Find all log files in the specified directory
-    log_files = find_log_files()
+    log_files = find_log_files(directory=LOG_DIRECTORY)
 
     # Process the log files and extract relevant data
     log_entries = process_log_files(log_files)
@@ -185,7 +195,7 @@ def main():
     merged_log_df = merge_rows(log_df)
 
     # Add data from JSON files to the DataFrame
-    merged_log_df = add_json_data(merged_log_df)
+    merged_log_df = add_json_data(merged_log_df,json_directory=LIVE_OUTPUT_DIRECTORY)
 
     # Extract decoder information from the folder names
     merged_log_df['decoder'] = merged_log_df['folder_name'].apply(extract_decoder_from_folder_name)
