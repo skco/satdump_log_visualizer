@@ -41,9 +41,14 @@ def generate_images_html(folder_name):
 
         for file in files:
             # Exclude specific plots from the gallery
-            if file.lower().endswith(('.png', '.jpg', '.jpeg')) and not any(sub in file for sub in ['SNR_and_Elevation_plot', 'satellite_route', 'polar_plot']):
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')) and not 'thumb' in file and not any(sub in file for sub in ['SNR_and_Elevation_plot', 'satellite_route', 'polar_plot']):
+                thumb_path=''
                 image_path = os.path.relpath(os.path.join(root, file), os.path.join('images', folder_name))
-                thumb_path = os.path.join(root, 'thumb_' + file)
+                if not 'thumb' in image_path:
+                    thumb_path = os.path.join(root, 'thumb_' + file)
+                else:
+                    thumb_path = image_path
+                
                 create_thumbnail(os.path.join(root, file), thumb_path)
                 subfolder_images.append({
                     'path': image_path,
