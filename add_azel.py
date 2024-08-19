@@ -4,9 +4,14 @@ from skyfield.api import Loader, Topos, wgs84
 from datetime import datetime, timedelta
 import requests
 
+OBSERVER_LAT = 40.70
+OBSERVER_LON = -8.35
+OBSERVER_ELEVATION = 300
+
 
 load = Loader('.')
 ts = load.timescale()
+
 
 TLE_URL = 'https://celestrak.org/NORAD/elements/weather.txt'
 TLE_FILE_PATH = 'weather.txt'
@@ -44,9 +49,7 @@ def calculate_azimuth_elevation(satellite, observer_lat, observer_lon, observer_
 
 
 def add_azimuth_elevation_distance(df, satellites):
-    observer_lat = 40.75
-    observer_lon = -8.35
-    observer_elevation = 330
+
 
     results = []
     for _, row in df.iterrows():
@@ -60,7 +63,7 @@ def add_azimuth_elevation_distance(df, satellites):
             satellite = next((sat for sat in satellites if sat.name == satellite_name), None)
 
             if satellite is not None and pd.notna(timestamp):
-                azimuth, elevation, distance_km, lat, lon = calculate_azimuth_elevation(satellite, observer_lat, observer_lon, observer_elevation, timestamp)
+                azimuth, elevation, distance_km, lat, lon = calculate_azimuth_elevation(satellite, OBSERVER_LAT, OBSERVER_LON, OBSERVER_ELEVATION, timestamp)
             else:
                 azimuth = None
                 elevation = None
@@ -75,6 +78,7 @@ def add_azimuth_elevation_distance(df, satellites):
 
     return df.assign(**pd.DataFrame(results))
 
+# Główna funkcja
 def main():
     df = pd.read_excel('parsed_log_data.xlsx')
 
