@@ -83,7 +83,7 @@ def process_log_files(files):
                         'end': None,
                         'logs': []
                     }
-                elif '(I) Stop processing' in line:
+                elif 'LOS!!!!!!!!!!!!!!' in line:
                     # Close the entry when '(I) Stop processing' is found
                     if current_entry:
                         current_entry['end'] = convert_timestamp(re.match(r'\[(.*?)\]', line).group(1))
