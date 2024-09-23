@@ -19,21 +19,30 @@ http://projects.radioastro.pl/log_project1_0/images/2024-07-24_03-52_meteor_m2-x
 
 <p><strong>SNR and Elevation Plot</strong></p>
 
+![SNR_and_Elevation_plot](https://github.com/user-attachments/assets/c030db17-fa8d-47a2-b102-b2f466ffb9cf)
+
 
 <p><strong>Satellite Route</strong></p>
+
+![satellite_route](https://github.com/user-attachments/assets/7f610af5-6e0e-4f29-98cd-3d70995e4374)
 
 
 <p><strong>Polar Plot</strong></p>
 
+![polar_plot](https://github.com/user-attachments/assets/78491c35-13b4-4ec7-9940-9755adf15e79)
 
 <p><strong>Inverted Polar Plot</strong></p>
+
+![polar_plot_inverted](https://github.com/user-attachments/assets/f8032de7-8fd6-44bb-ba14-c3772be7298d)
 
 
 <p><strong>Combined Inverted Polar Plot</strong></p>
 
+![polar_plot_all_inverted_lrpt](https://github.com/user-attachments/assets/4e63d122-6b95-4459-8e3c-164998204cf8)
 
 <p><strong>Combined Polar Plot</strong></p>
 
+![polar_plot_all_lrpt](https://github.com/user-attachments/assets/2698c76f-489e-4864-9c11-af983efeb5e1)
 
 
 <h2>Prerequisites</h2>
